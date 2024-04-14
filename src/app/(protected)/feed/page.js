@@ -9,7 +9,7 @@ const page = () => {
         <Newpost />
         <PostsCard />
       </div>
-      <RigntSideBar/>
+     
 
     </>
   )
