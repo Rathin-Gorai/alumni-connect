@@ -1,3 +1,4 @@
+import Link from "next/link"
 
 const Sidebar = () => {
     return (
@@ -18,56 +19,43 @@ const Sidebar = () => {
 
                     </div>
                     <ul className="flex flex-col text-2xl space-y-3 md:px-11 font-bold w-full  ">
-                        <li
-                            className="flex md:justify-start items-center gap-3 justify-center  mr-4 md:w-fit  hover:bg-gray-900 hover:cursor-pointer px-5 py-3 hover:rounded-full">
-                            <span className="text-3xl material-symbols-outlined"> home </span> <span
-                                className="hidden md:block">Home</span>
-                        </li>
-                        <li
+                        <Link href={"/feed"}>
+                            <li
+                                className="flex md:justify-start items-center gap-3 justify-center  mr-4 md:w-fit  hover:bg-gray-900 hover:cursor-pointer px-5 py-3 hover:rounded-full">
+                                <span className="text-3xl material-symbols-outlined"> home </span> <span
+                                    className="hidden md:block">Home</span>
+                            </li>
+                            </Link>
+
+                        <Link href={'/feed/explore'}> <li
                             className="flex md:justify-start items-center gap-3 justify-center  mr-4 md:w-fit  hover:bg-gray-900 hover:cursor-pointer px-5 py-3 hover:rounded-full">
                             <span className="text-3xl material-symbols-outlined"> search </span><span
                                 className="hidden md:block">Explore</span>
                         </li>
+                        </Link>
+                        <Link href={'/feed/notification'}>
                         <li
                             className="flex md:justify-start items-center gap-3 justify-center  mr-4 md:w-fit  hover:bg-gray-900 hover:cursor-pointer px-5 py-3 hover:rounded-full">
                             <span className="text-3xl material-symbols-outlined"> notifications </span><span
                                 className="hidden md:block">Notifications</span>
                         </li>
-                        <li
-                            className="flex md:justify-start items-center gap-3 justify-center  mr-4 md:w-fit  hover:bg-gray-900 hover:cursor-pointer px-5 py-3 hover:rounded-full">
-                            <span className="text-3xl material-symbols-outlined"> message </span><span
-                                className="hidden md:block">Grok</span>
-                        </li>
-                        <li
-                            className="flex md:justify-start items-center gap-3 justify-center  mr-4 md:w-fit  hover:bg-gray-900 hover:cursor-pointer px-5 py-3 hover:rounded-full">
-                            <span className="text-3xl material-symbols-outlined"> lists </span><span
-                                className="hidden md:block">Lists</span>
-                        </li>
+                        </Link>
+
+                    <Link href={'/feed/saved'}>
                         <li
                             className="flex md:justify-start items-center gap-3 justify-center  mr-4 md:w-fit  hover:bg-gray-900 hover:cursor-pointer px-5 py-3 hover:rounded-full">
                             <span className="text-3xl material-symbols-outlined"> bookmarks </span><span
-                                className="hidden md:block">Bookmarks</span>
+                                className="hidden md:block">Saved</span>
                         </li>
-                        <li
-                            className="flex md:justify-start items-center gap-3 justify-center  mr-4 md:w-fit  hover:bg-gray-900 hover:cursor-pointer px-5 py-3 hover:rounded-full">
-                            <span className="text-3xl material-symbols-outlined"> Group </span><span
-                                className="hidden md:block">Communities</span>
-                        </li>
-                        <li
-                            className="flex md:justify-start items-center gap-3 justify-center  mr-4 md:w-fit  hover:bg-gray-900 hover:cursor-pointer px-5 py-3 hover:rounded-full">
-                            <span className="text-3xl material-symbols-outlined"> box </span><span
-                                className="hidden md:block">Premium</span>
-                        </li>
+                    </Link>
+                    <Link href={'/feed/profile'}>
                         <li
                             className="flex md:justify-start items-center gap-3 justify-center  mr-4 md:w-fit  hover:bg-gray-900 hover:cursor-pointer px-5 py-3 hover:rounded-full">
                             <span className="text-3xl material-symbols-outlined"> person </span><span
                                 className="hidden md:block">Profile</span>
                         </li>
-                        <li
-                            className="flex md:justify-start items-center gap-3 justify-center  mr-4 md:w-fit  hover:bg-gray-900 hover:cursor-pointer px-5 py-3 hover:rounded-full">
-                            <span className="text-3xl material-symbols-outlined"> pending </span><span
-                                className="hidden md:block">More</span>
-                        </li>
+                    </Link>
+                    <Link href={'/feed/post'}>
                         <li>
                             <div className="button w-full text-center my-4">
                                 <button
@@ -79,9 +67,10 @@ const Sidebar = () => {
                                 </button>
                             </div>
                         </li>
+                    </Link>
                     </ul>
 
-                    <div className="userprofile w-full mt-10  justify-end mx-10 hidden md:flex">
+                    {/* <div className="userprofile w-full mt-10  justify-end mx-10 hidden md:flex">
                         <div
                             className="item p-3 items-center gap-5 justify-end mx-5 flex   hover:bg-gray-800 cursor-pointer rounded-full w-fit">
 
@@ -99,7 +88,7 @@ const Sidebar = () => {
 
 
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
 
