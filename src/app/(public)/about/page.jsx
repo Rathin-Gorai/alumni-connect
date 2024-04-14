@@ -65,8 +65,7 @@ const page = () => {
                         "\n\t\t\t\t\t\t\t\t.st0 {\n\t\t\t\t\t\t\t\t\tfill: #0acf83\n\t\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t\t.st1 {\n\t\t\t\t\t\t\t\t\tfill: #a259ff\n\t\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t\t.st2 {\n\t\t\t\t\t\t\t\t\tfill: #f24e1e\n\t\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t\t.st3 {\n\t\t\t\t\t\t\t\t\tfill: #ff7262\n\t\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t\t.st4 {\n\t\t\t\t\t\t\t\t\tfill: #1abcfe\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t"
                     }}
                   />
-                  <title>Figma.logo</title>
-                  <desc>Created using Figma</desc>
+                  
                   <path
                     id="path0_fill"
                     className="st0"
