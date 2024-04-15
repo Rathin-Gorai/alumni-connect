@@ -1,5 +1,17 @@
+'use client'
+import { useState } from "react"
 
 const PostsCard = () => {
+    const [postData,setPostData]= useState({
+        avatar:"https://pbs.twimg.com/profile_images/1522060025854066688/IZs_lylH_bigger.png",
+        name:"CodeWithHarry",
+        username:"@CodeWithHarry",
+        time:"6h",
+        postText:"Living legend",
+        image:"https://pbs.twimg.com/media/GEGqnodacAAoyCO?format=jpg&name=900x900"
+
+
+    });
   return (
     <div>
       <div className="posts">
@@ -8,16 +20,16 @@ const PostsCard = () => {
                     <div className="flex">
                         <div className="image m-4">
                             <img className="w-16"
-                                src="https://pbs.twimg.com/profile_images/1522060025854066688/IZs_lylH_bigger.png"
+                                src={postData.avatar}
                                 alt=""/>
                         </div>
                         <div className="content my-3">
-                            <span className="font-bold hover:underline cursor-pointer text-white">CodeWithHarry</span> <span
-                                className="text-gray-500">@CodeWithHarry · 6h </span>
-                            <div>Living legend</div>
+                            <span className="font-bold hover:underline cursor-pointer text-white">{postData.name}</span> <span
+                                className="text-gray-500">{postData.username} · {postData.time} </span>
+                            <div>{postData.postText}</div>
                             <div className="postimg m-4 ml-0">
                                 <img className="rounded-xl"
-                                    src="https://pbs.twimg.com/media/GEGqnodacAAoyCO?format=jpg&name=900x900" alt=""/>
+                                    src={postData.image} alt=""/>
                             </div>
                             <div className="icons flex justify-between mx-4 my-4 text-sm text-gray-600">
                                 <div
