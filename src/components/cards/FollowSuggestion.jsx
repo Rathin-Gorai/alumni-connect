@@ -28,10 +28,10 @@ const FollowSuggestion = () => {
             console.log("Error in Followsuggession page", error);
         }
     }
-    useEffect(() => {
-        getFollowSuggession()
+    // useEffect(() => {
+    //     getFollowSuggession()
 
-    }, [])
+    // }, [])
 
     return (
         <div className="who m-3 bg-[#16181c] w-1/2 py-5 rounded-xl space-y-1">

@@ -7,19 +7,51 @@ const PostsCard = () => {
             id: 1,
             name: "John Doe",
             username: "@johndoe",
-            avatar: "https://pbs.twimg.com/profile_images/1522060025854066688/IZs_lylH_bigger.png",
+            avatar: "/logo.png",
             time: "1h ago",
             postText: "This is a dummy post.",
-            image: "https://pbs.twimg.com/media/GEGqnodacAAoyCO?format=jpg&name=900x900"
+            image: "https://picsum.photos/800"
         },
         {
             id: 2,
             name: "Jane Smith",
             username: "@janesmith",
-            avatar: "https://pbs.twimg.com/profile_images/1522060025854066688/IZs_lylH_bigger.png",
+            avatar: "/logo.png",
             time: "2h ago",
             postText: "Another dummy post.",
-            image: "https://pbs.twimg.com/media/GEGqnodacAAoyCO?format=jpg&name=900x900"
+            image: "https://picsum.photos/400"
+        },{
+            id: 3,
+            name: "Jane Smith",
+            username: "@janesmith",
+            avatar: "/logo.png",
+            time: "2h ago",
+            postText: "Another dummy post.",
+            image: "https://picsum.photos/500"
+        },{
+            id: 4,
+            name: "Jane Smith",
+            username: "@janesmith",
+            avatar: "/logo.png",
+            time: "2h ago",
+            postText: "Another dummy post.",
+            image: "https://picsum.photos/450"
+        },{
+            id: 2,
+            name: "Jane Smith",
+            username: "@janesmith",
+            avatar: "/logo.png",
+            time: "2h ago",
+            postText: "Another dummy post.",
+            image: "https://picsum.photos/550"
+        },{
+            id: 2,
+            name: "Jane Smith",
+            username: "@janesmith",
+            avatar: "/logo.png",
+            time: "2h ago",
+            postText: "Another dummy post.",
+            image: "https://picsum.photos/700"
         },
         // Add more dummy post data objects as needed
     ];
@@ -31,7 +63,7 @@ const PostsCard = () => {
                     <div key={post.id} className="post">
                         <div className="flex">
                             <div className="image m-4">
-                                <img className="w-16" src={post.avatar} alt="" />
+                                <img className="w-[45px] max-w-[45px] min-w-[45px] rounded-full" src={post.avatar} alt="" />
                             </div>
                             <div className="content my-3">
                                 <span className="font-bold hover:underline cursor-pointer text-white">{post.name}</span> <span className="text-gray-500">{post.username} · {post.time} </span>

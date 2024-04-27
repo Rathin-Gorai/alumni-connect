@@ -1,23 +1,31 @@
 'use client'
-import Cookies from 'js-cookie';
-import jwt from 'jsonwebtoken';
 import { createPost } from "@/lib/actions/post.action";
-import { useState } from "react"
+import { getUserIdByToken } from "@/lib/actions/user.action";
+import { useEffect, useState } from "react"
+
 
 const Newpost = () => {
-    const token = Cookies.get('token');
-    const decodedToken = jwt.decode(token);
-    const userId = decodedToken;
-    console.log(decodedToken);
-    
+
+    useEffect(() => {
+        const getId = async () => {
+            try {
+                const res = await getUserIdByToken();
+                // console.log(res);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getId();
+    }, [])
+
     const [formData, setFormData] = useState({
-        userId: userId,
+        userId: '',
         image: "",
         caption: ""
     })
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(e);
+        // console.log(e);
         setFormData({ ...formData, [name]: value });
     };
     const handleSubmit = async () => {
@@ -34,11 +42,11 @@ const Newpost = () => {
             <div className="whatishapp flex gap-4 my-3">
                 <div className="img m-2 w-16">
 
-                    <img src="https://pbs.twimg.com/profile_images/1522060025854066688/IZs_lylH_bigger.png" alt="" />
+                    <img className=' rounded-full' src="/logo.png" alt="" />
                 </div>
                 <div className="w-full">
                     <input className="w-full h-7 my-2 text-xl bg-black outline-none text-white" type="text"
-                        placeholder="What is happening?!" value={formData.caption} name={formData.caption} onChange={(e)=>handleChange()} />
+                        placeholder="What is happening?!" value={formData.caption} name={formData.caption} onChange={(e) => handleChange()} />
                     <div className="text-blue-400 flex items-center gap-1 w-full my-4">
                         <span className="material-symbols-outlined ">
                             globe_asia
