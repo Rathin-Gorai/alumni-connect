@@ -48,7 +48,7 @@ const usersSchema = new mongoose.Schema({
     instagram: {
         type: String,
     },
-    BIO: {
+    bio: {
         type: String,
     },
     alumni: {

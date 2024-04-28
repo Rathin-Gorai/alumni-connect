@@ -1,10 +1,10 @@
 "use server";
-import Post from "@/lib/db/models/post.models";
-import User from "@/lib/db/models/user.models";
+import Post from "@/lib/db/models/post.model";
+import User from "@/lib/db/models/user.model";
 import { connectToDatabase } from "@/lib/db/connect";
-import Comment from "@/lib/db/models/comment.models";
+import Comment from "@/lib/db/models/comment.model";
 import { revalidatePath } from "next/cache";
-import { deleteImage } from "../utils/uploadPic";
+// import { deleteImage } from "../utils/uploadPic";
 
 //create a post
 export async function createPost(
@@ -58,7 +58,7 @@ export async function createPost(
       message: "Post created successfully",
       data: newPost,
     };
-    revalidatePath("/create-post");
+    revalidatePath("/feed");
     return JSON.parse(JSON.stringify(response));
   } catch (error) {
     const response = {

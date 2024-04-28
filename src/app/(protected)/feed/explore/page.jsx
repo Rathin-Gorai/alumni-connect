@@ -2,7 +2,7 @@
 
 const page = () => {
   return (
-    <div>
+    <div className=" w-full">
       Explore Page
     </div>
   )
