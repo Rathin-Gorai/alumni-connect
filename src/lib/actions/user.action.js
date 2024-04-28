@@ -130,3 +130,41 @@ export const loginUser = async (user) => {
     return JSON.parse(JSON.stringify(response));
   }
 };
+
+
+export async function getUserIdByToken() {
+  
+  try {
+    const cookieStore = cookies();
+    const cookieName = "token"; // Replace with the actual cookie name
+    // Get the cookie value
+    const cookieValue = cookieStore.get(cookieName);
+    //decode the value of token
+    const decoded = jwt.decode(cookieValue.value);
+    
+    return JSON.parse(JSON.stringify(decoded));
+  } catch (error) {
+    const res = {
+      status: "error",
+      message: error.message
+    }
+    return JSON.parse(JSON.stringify(res));
+  }
+}
+
+export async function getUserData(req,res) {
+  const id = req
+  try {
+    await connectToDatabase();
+    const userData = await Users.findOne({
+      id: id,
+    });
+    return JSON.parse(JSON.stringify(userData));
+  } catch (error) {
+    const res = {
+      status: "error",
+      message: error.message
+    }
+    return JSON.parse(JSON.stringify(res));
+  }
+}

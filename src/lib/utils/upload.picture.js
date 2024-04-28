@@ -13,7 +13,7 @@ export async function uploadImage(base64url){
     try {
         const res = await cloudinary.uploader.upload(base64url)
         const image = {
-          public : res.public_id,
+          public_id : res.public_id,
           image_url: res.secure_url
         }
 
