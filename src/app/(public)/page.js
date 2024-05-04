@@ -1,5 +1,5 @@
-import { Crousel, Faq, Home1 } from '@/components'
-import Link from 'next/link'
+import { Crousel, Faq, Home1 } from "@/components";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -7,35 +7,41 @@ export default function Home() {
       <div className="bg-white pt-4 lg:pt-16 relative lg:ml-5 pb-20 lg:pb-10 ">
         <div className="relative xl:container m-auto px-6 md:px-12 lg:px-6">
           <h1 className="sm:mx-auto sm:w-10/12 md:w-2/3 font-black text-blue-900 text-4xl text-center sm:text-5xl md:text-6xl lg:w-auto lg:text-left xl:text-7xl ">
-            Run successful remote and <br className="lg:block hidden" />{" "}
+            An Initiative towards a<br className="lg:block hidden" />{" "}
             <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 ">
-              Hybrid teams
+              Skilled Future
             </span>
             .
           </h1>
           <div className="lg:flex">
             <div className="relative mt-8 md:mt-16 space-y-8 sm:w-10/12 md:w-2/3 lg:ml-0 sm:mx-auto text-center lg:text-left lg:mr-auto lg:w-7/12">
               <p className="sm:text-lg text-gray-700  lg:w-11/12">
-                DailyBot takes chat and collaboration to the next level: daily
-                standups, team check-ins, surveys, kudos, best companion bot for your
-                virtual watercooler, 1:1 intros, motivation tracking and more.
+                In the era of digital connectivity, social media platforms have
+                become integral to our daily lives, offering avenues for
+                communication, networking, and collaboration. Recognizing the
+                need for a tailored solution within the educational ecosystem,
+                this project aims to develop a specialized social media
+                application for a college/educational organization
               </p>
               <span className="block font-semibold text-gray-500 ">
-                The best companion bot for your chat app.
+                And this is exactly where we play our part.
               </span>
 
               <p className="sm:text-lg text-gray-700  lg:w-10/12">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, vitae neque quas suscipit delectus minima
-                asperiores nulla ex tempore voluptatibus corrupti dignissimos blanditiis perspiciatis, id porro? Velit excepturi
-                commodi labore ut suscipit et enim at similique maxime consequatur, atque ab modi minus laboriosam? Maiores, natus
-                ducimus inventore aspernatur excepturi ut odio dicta! Tempore eveniet ad modi eius! Delectus facilis consequuntur
-                ipsum, quidem eveniet laboriosam optio expedita a unde vitae dolorem cupiditate? Consequuntur impedit, sint fugit
-                accusantium repellendus fugiat vitae at neque. Repudiandae, accusamus. A, provident neque ipsum consequuntur sed
-                at veniam veritatis praesentium minima. Laborum omnis beatae id sequi molestias accusantium labore voluptates vel,
-                qibusdam. Quia excepturi eaque perferendis, aspernatur
-                at voluptatum deserunt incidunt assumenda nulla, labore repellendus, corrupti optio debitis ab ratione. Provident explicabo
-                doloribus, vitaeandae porro ipsam totam tempora cupiditate quod explicabo hic! Necessitatibus quidem magni ad quod maiores autem,
-                commodi delectus atque praesentium saepe, suscipit, inventore nostrum dolorem cupiditate velit quibusdam?
+                The primary objective of this social media platform is to create
+                a virtual space where MITM students can interact, exchange
+                knowledge, and collaborate on academic and professional
+                endeavors. By fostering a supportive online community, the
+                application aims to enhance students' academic experiences,
+                foster interdisciplinary collaboration, and strengthen the sense
+                of camaraderie within the college. Through this platform, we aim
+                to demonstrate the practical application of cutting-edge web
+                development tools and techniques in addressing real-world
+                challenges faced by educational institutions. Additionally, the
+                project endeavors to contribute towards the holistic development
+                and empowerment of students by providing them with a platform to
+                harness their collective potential and facilitate their
+                professional growth.
               </p>
               <div className="grid grid-cols-3 space-x-4 md:space-x-6 md:flex md:justify-center lg:justify-start">
                 <Link
@@ -52,9 +58,7 @@ export default function Home() {
                       width={128}
                       height={128}
                     />
-                    <span className="hidden font-medium md:block ">
-                      Slack
-                    </span>
+                    <span className="hidden font-medium md:block ">Slack</span>
                   </div>
                 </Link>
                 <Link
@@ -90,25 +94,17 @@ export default function Home() {
                       width={128}
                       height={128}
                     />
-                    <span className="hidden font-medium md:block ">
-                      Zoom
-                    </span>
+                    <span className="hidden font-medium md:block ">Zoom</span>
                   </div>
                 </Link>
               </div>
               <div className="">
                 🔥🌟
                 <span>Other integrations :</span>
-                <Link
-                  href="#"
-                  className="font-semibold text-gray-700 "
-                >
+                <Link href="#" className="font-semibold text-gray-700 ">
                   Discord,
                 </Link>
-                <Link
-                  href="#"
-                  className="font-semibold text-gray-700 "
-                >
+                <Link href="#" className="font-semibold text-gray-700 ">
                   Telegram
                 </Link>
               </div>
@@ -154,11 +150,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
-      
-      <Home1/>
-      <Crousel/>
+
+      <Home1 />
+      <Crousel />
       <Faq />
     </>
-  )
+  );
 }
