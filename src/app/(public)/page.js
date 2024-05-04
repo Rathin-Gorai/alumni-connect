@@ -1,4 +1,5 @@
 import { Crousel, Faq, Home1 } from '@/components'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -37,7 +38,7 @@ export default function Home() {
                 commodi delectus atque praesentium saepe, suscipit, inventore nostrum dolorem cupiditate velit quibusdam?
               </p>
               <div className="grid grid-cols-3 space-x-4 md:space-x-6 md:flex md:justify-center lg:justify-start">
-                <a
+                <Link
                   aria-label="add to slack"
                   href="#"
                   className="p-4 border border-gray-200  rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20 "
@@ -55,8 +56,8 @@ export default function Home() {
                       Slack
                     </span>
                   </div>
-                </a>
-                <a
+                </Link>
+                <Link
                   aria-label="add to chat"
                   href="#"
                   className="p-4 border border-gray-200 rounded-full duration-300 hover:border-green-400 hover:shadow-lg hover:shadow-lime-600/20 "
@@ -74,8 +75,8 @@ export default function Home() {
                       Google Chat
                     </span>
                   </div>
-                </a>
-                <a
+                </Link>
+                <Link
                   aria-label="add to zoom"
                   href="#"
                   className="p-4 border border-gray-200  rounded-full duration-300 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-600/20 "
@@ -93,23 +94,23 @@ export default function Home() {
                       Zoom
                     </span>
                   </div>
-                </a>
+                </Link>
               </div>
               <div className="">
                 🔥🌟
                 <span>Other integrations :</span>
-                <a
+                <Link
                   href="#"
                   className="font-semibold text-gray-700 "
                 >
                   Discord,
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#"
                   className="font-semibold text-gray-700 "
                 >
                   Telegram
-                </a>
+                </Link>
               </div>
               <div className="pt-12 flex gap-6 lg:gap-12 justify-between grayscale lg:w-2/3">
                 <img

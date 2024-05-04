@@ -155,10 +155,12 @@ export async function getUserIdByToken() {
 export async function getUserData(req,res) {
   const id = req
   try {
+    // console.log(id);
     await connectToDatabase();
     const userData = await Users.findOne({
-      id: id,
+      _id: id,
     });
+    // console.log(userData);
     return JSON.parse(JSON.stringify(userData));
   } catch (error) {
     const res = {
@@ -168,3 +170,46 @@ export async function getUserData(req,res) {
     return JSON.parse(JSON.stringify(res));
   }
 }
+
+export const getUserByToken = async () => {
+  try {
+    await connectToDatabase();
+    // check if token is provided
+    const token = cookies().get("token");
+    const decoedToke  = jwt.verify(
+      token.value,
+      process.env.JWT_SECRET 
+    );
+
+    // check if user exists
+    const existingUser = await Users.findOne({
+      _id: decoedToken?.id,
+    }).populate({
+      path: "posts",
+      model: "Post",
+      select: "_id image",
+    });
+
+    if (!existingUser) {
+      const response = {
+        status: false,
+        message: "User does not exists",
+      };
+      return JSON.parse(JSON.stringify(response));
+    }
+
+    // return existing user
+    const response = {
+      status: true,
+      message: "User logged in successfully",
+      data: existingUser,
+    };
+    return JSON.parse(JSON.stringify(response));
+  } catch (error) {
+    const response = {
+      status: false,
+      message: error.message,
+    };
+    return JSON.parse(JSON.stringify(response));
+  }
+};

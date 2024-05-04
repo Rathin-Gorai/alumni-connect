@@ -1,7 +1,8 @@
 'use client'
+import { getUserByToken } from "@/lib/actions/user.action";
 import { useState } from "react"
 
-const PostsCard = () => {
+const PostsCard = ({ post }) => {
     const postData = [
         {
             id: 1,
@@ -20,7 +21,7 @@ const PostsCard = () => {
             time: "2h ago",
             postText: "Another dummy post.",
             image: "https://picsum.photos/400"
-        },{
+        }, {
             id: 3,
             name: "Jane Smith",
             username: "@janesmith",
@@ -28,7 +29,7 @@ const PostsCard = () => {
             time: "2h ago",
             postText: "Another dummy post.",
             image: "https://picsum.photos/500"
-        },{
+        }, {
             id: 4,
             name: "Jane Smith",
             username: "@janesmith",
@@ -36,7 +37,7 @@ const PostsCard = () => {
             time: "2h ago",
             postText: "Another dummy post.",
             image: "https://picsum.photos/450"
-        },{
+        }, {
             id: 2,
             name: "Jane Smith",
             username: "@janesmith",
@@ -44,7 +45,7 @@ const PostsCard = () => {
             time: "2h ago",
             postText: "Another dummy post.",
             image: "https://picsum.photos/550"
-        },{
+        }, {
             id: 2,
             name: "Jane Smith",
             username: "@janesmith",
@@ -55,7 +56,13 @@ const PostsCard = () => {
         },
         // Add more dummy post data objects as needed
     ];
-    
+
+    // const fetchUser = async () => {
+    //     const response =await getUserByToken();
+    //     console.log(response);
+    //     return data;
+    // };
+    // fetchUser();
     return (
         <div>
             <div className="posts">
@@ -72,17 +79,18 @@ const PostsCard = () => {
                                     <img className="rounded-xl" src={post.image} alt="" />
                                 </div>
                                 <div className="icons flex justify-between mx-4 my-4 text-sm text-gray-600">
+                                    <div className="icon flex items-center justify-center hover:text-pink-500 hover:bg-gray-900 hover:rounded-full p-1 hover:cursor-pointer">
+                                        <span className="material-symbols-outlined">Favorite</span> 10k
+                                    </div>
                                     <div className="icon flex items-center justify-center hover:text-blue-500 hover:bg-gray-900 hover:rounded-full p-1 hover:cursor-pointer">
                                         <span className="material-symbols-outlined">chat_bubble</span> 1k
                                     </div>
                                     <div className="icon flex items-center justify-center hover:text-green-500 hover:bg-gray-900 hover:rounded-full p-1 hover:cursor-pointer">
-                                        <span className="material-symbols-outlined">repeat</span> 1k
+                                        <span className="material-symbols-outlined">share</span>
                                     </div>
-                                    <div className="icon flex items-center justify-center hover:text-pink-500 hover:bg-gray-900 hover:rounded-full p-1 hover:cursor-pointer">
-                                        <span className="material-symbols-outlined">Favorite</span> 1k
-                                    </div>
-                                    <div className="icon flex items-center justify-center hover:text-blue-500 hover:bg-gray-900 hover:rounded-full p-1 hover:cursor-pointer">
-                                        <span className="material-symbols-outlined">bar_chart</span> 1k
+
+                                    <div className="icon flex items-center justify-center hover:text-white hover:bg-gray-900 hover:rounded-full p-1 hover:cursor-pointer">
+                                        <span className="material-symbols-outlined">bookmark</span>
                                     </div>
                                 </div>
                             </div>

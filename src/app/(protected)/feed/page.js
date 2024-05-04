@@ -1,6 +1,16 @@
+
 import { PostsCard, RigntSideBar, Topbar } from "@/components"
 import Newpost from "@/components/forms/Newpost"
-
+import { getAllPosts } from "@/lib/actions/post.action"
+const getAllpost = async () => {
+  try {
+    // const response = await getAllPosts()
+    // console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+getAllpost();
 const page = () => {
   return (
     <>
@@ -9,7 +19,7 @@ const page = () => {
         <Newpost />
         <PostsCard />
       </div>
-     
+
 
     </>
   )

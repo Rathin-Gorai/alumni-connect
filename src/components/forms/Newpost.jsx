@@ -1,16 +1,18 @@
 'use client'
 import { createPost } from "@/lib/actions/post.action";
 import { getUserIdByToken } from "@/lib/actions/user.action";
+import Link from "next/link";
 import { useEffect, useState } from "react"
+import toast from "react-hot-toast";
 
 
 const Newpost = () => {
-
+    const [user, setUserId] = useState('')
     useEffect(() => {
         const getId = async () => {
             try {
                 const res = await getUserIdByToken();
-                // console.log(res);
+                setUserId(res.id)
             } catch (error) {
                 console.log(error);
             }
@@ -20,18 +22,31 @@ const Newpost = () => {
 
     const [formData, setFormData] = useState({
         userId: '',
-        image: "",
-        caption: ""
+        post: {
+            caption: "",
+        }
     })
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        // console.log(e);
-        setFormData({ ...formData, [name]: value });
-    };
+
     const handleSubmit = async () => {
         try {
-            const res = await createPost(formData);
-
+            console.log(formData, user);
+            const res = await createPost({
+                userId: user,
+                post: {
+                    caption: formData.post.caption,
+                }
+            });
+            console.log(res);
+            if (res.status === 200) {
+                setFormData({
+                    userId: '',
+                    post: {
+                        caption: "",
+                    }
+                });
+                toast.success("Post created successfully");
+                window.location.href = '/feed'
+            }
         } catch (error) {
             console.log(error);
         }
@@ -46,7 +61,9 @@ const Newpost = () => {
                 </div>
                 <div className="w-full">
                     <input className="w-full h-7 my-2 text-xl bg-black outline-none text-white" type="text"
-                        placeholder="What is happening?!" value={formData.caption} name={formData.caption} onChange={(e) => handleChange()} />
+                        placeholder="What is happening?!" value={formData.post.caption} name={'caption'} onChange={(e) => {
+                            setFormData({ ...formData, post: { ...formData.post, caption: e.target.value } })
+                        }} />
                     <div className="text-blue-400 flex items-center gap-1 w-full my-4">
                         <span className="material-symbols-outlined ">
                             globe_asia
@@ -57,24 +74,26 @@ const Newpost = () => {
                     <div className="flex justify-between">
 
                         <div className="blueicons flex gap-2 text-blue-400 items-center">
-                            <span className="material-symbols-outlined cursor-pointer">
-                                image
-                            </span>
-                            <span className="material-symbols-outlined cursor-pointer">
-                                gif
-                            </span>
-                            <span className="material-symbols-outlined cursor-pointer">
-                                ballot
-                            </span>
-                            <span className="material-symbols-outlined cursor-pointer">
-                                sentiment_satisfied
-                            </span>
-                            <span className="material-symbols-outlined cursor-pointer">
-                                calendar_month
-                            </span>
-                            <span className="material-symbols-outlined cursor-pointer">
-                                pin_drop
-                            </span>
+                            <Link href={'/feed/newpost'}>
+                                <span className="material-symbols-outlined cursor-pointer">
+                                    image
+                                </span>
+                                <span className="material-symbols-outlined cursor-pointer">
+                                    gif
+                                </span>
+                                <span className="material-symbols-outlined cursor-pointer">
+                                    ballot
+                                </span>
+                                <span className="material-symbols-outlined cursor-pointer">
+                                    sentiment_satisfied
+                                </span>
+                                <span className="material-symbols-outlined cursor-pointer">
+                                    calendar_month
+                                </span>
+                                <span className="material-symbols-outlined cursor-pointer">
+                                    pin_drop
+                                </span>
+                            </Link>
                         </div>
                         <div className="postbtn">
                             <button
