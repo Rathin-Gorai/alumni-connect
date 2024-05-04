@@ -35,9 +35,10 @@ const ProfileCard = () => {
   const getUserDataById = async () => {
     try {
       const res = await getUserData(userData.id);
+      // console.log(userData.id);
       setUserData({
         ...userData,
-        name: res.name,
+        name: res?.name || 'name',
         jobTitle: res.curentJob === undefined ? 'Software Engineer' : res.jobTitle,
         bio: res.bio === undefined ? 'John is a software engineer with over 10 years of experience in developing web and mobile applications.' : res.bio,
         imageUrl: res.imageUrl === undefined ? 'https://picsum.photos/200' : res.imageUrl,

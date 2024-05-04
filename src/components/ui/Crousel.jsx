@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Crousel = () => {
@@ -14,12 +15,12 @@ const Crousel = () => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra
         euismod odio, gravida pellentesque urna varius vitae.
       </p>
-      <a
+      <Link
         href="#"
         className="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600"
       >
         Demo
-      </a>
+      </Link>
     </div>
   </section>
 </div>

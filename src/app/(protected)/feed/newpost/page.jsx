@@ -1,10 +1,34 @@
 'use client'
+import { createPost } from '@/lib/actions/post.action';
+import { getUserIdByToken } from '@/lib/actions/user.action';
 import { uploadImage } from '@/lib/utils/upload.picture';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation'
 
 function page() {
   const [images, setImages] = useState([]);
-
+  const [user, setUserId] = useState('')
+  const router = useRouter()
+  useEffect(() => {
+    const getId = async () => {
+      try {
+        const res = await getUserIdByToken();
+        setUserId(res.id)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getId();
+  }, [])
+  const [postData, setPostData] = useState({
+    userId: '',
+    post: {
+      caption: '',
+      location: '',
+      image: '',
+      imageId: ''
+    }
+  })
   const handleFileChange = (event) => {
     const files = Array.from(event.target.files).map(file => ({
       url: URL.createObjectURL(file),
@@ -39,14 +63,34 @@ function page() {
   }
   const handdleSubmit = async () => {
     try {
-      
       var imageUrl = images[0].url;
       const base64 = await imageToBase64(imageUrl);
-        const res = await uploadImage(base64)
-        console.log(res,base64);
-      // console.log(images);
+      const res = await uploadImage(base64)
+      // console.log(res);
+      const response = await createPost({
+        userId: user,
+        post: {
+          caption: postData.post.caption || 'ABC',
+          location: postData.post.location,
+          image: res.image_url,
+          imageId: res.public_id
+        }
+      });
+      if(response.status === 200){
+        setImages([])
+        setPostData({
+          userId: '',
+          post: {
+            caption: '',
+            location: '',
+            image: '',
+            imageId: ''
+          }
+        })
+        router.push('/feed')
+      }
     } catch (error) {
-
+      console.log(error);
     }
 
   };
@@ -60,14 +104,44 @@ function page() {
     <div className="bg-black shadow p-4 py-8 w-full" x-data={{ images: [] }} >
       <div className="heading text-center font-bold text-2xl m-5  text-white">Create New Post</div>
       <div className="editor mx-auto w-10/12 flex flex-col   p-4 shadow-lg max-w-2xl">
-        <textarea className="description sec p-3 h-40 border border-gray-300 outline-none mb-4 bg-black" spellCheck="false" placeholder="Describe everything about this post here"></textarea>
-        <input className="title bg-black border border-gray-300 p-2 mb-4 outline-none" spellCheck="false" placeholder="Location" type="text" />
+        <textarea 
+        className="description sec p-3 h-40 border border-gray-300 outline-none mb-4 bg-black" 
+        spellCheck="true" 
+        placeholder="Describe everything about this post here"
+        onChange={(e) => {
+          setPostData({
+            ...postData,
+            post: {
+              ...postData.post,
+              caption: e.target.value
+            }
+          })
+        }}
+        ></textarea>
+        <input
+          className="title bg-black border border-gray-300 p-2 mb-4 outline-none"
+          spellCheck="false"
+          placeholder="Location"
+          type="text"
+          onChange={
+            (e) => {
+              setPostData({
+                ...postData,
+                post: {
+                  ...postData.post,
+                  location: e.target.value
+                }
+              })
+            }
+          }
+        />
         <div className="icons flex text-white m-2">
           <label id="select-image">
             <svg className="mr-2 cursor-pointer hover:text-gray-700 border rounded-full p-1 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
             </svg>
-            <input hidden type="file" multiple onChange={handleFileChange} />
+            <input hidden type="file" accept=".jpg, .png, .gif, .jpeg" onChange={handleFileChange} />
+
           </label>
           <div className="count ml-auto text-gray-400 text-xs font-semibold">0/300</div>
         </div>

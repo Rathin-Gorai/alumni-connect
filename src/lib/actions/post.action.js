@@ -1,17 +1,16 @@
 "use server";
 import Post from "@/lib/db/models/post.model";
 import User from "@/lib/db/models/user.model";
-import { connectToDatabase } from "@/lib/db/connect";
+import connectToDatabase  from "@/lib/db/connect";
 import Comment from "@/lib/db/models/comment.model";
 import { revalidatePath } from "next/cache";
 // import { deleteImage } from "../utils/uploadPic";
 
 //create a post
-export async function createPost(
-  userId,
-  post
-) {
+export async function createPost(req) {
+  const{ userId,post } = req
   try {
+    console.log(post.images);
     await connectToDatabase();
     if (!userId) {
       const response = {
@@ -23,7 +22,7 @@ export async function createPost(
 
     //check if user exists
 
-    const userExists = await User.findById({ _id: userId });
+    const userExists = await User.findById(userId);
     if (!userExists) {
       const response = {
         status: 400,
@@ -32,21 +31,20 @@ export async function createPost(
       return JSON.parse(JSON.stringify(response));
     }
 
-    if (!post.caption || !post.image) {
+    if(post.caption === '' && post.images===''){
       const response = {
         status: 400,
-        message: "Caption is required",
+        message: "Nothing to post",
       };
       return JSON.parse(JSON.stringify(response));
     }
 
     //create post
     const newPost = await Post.create({
-      caption: post.caption,
-      image: post.image,
-      imageId: post.imageId,
-      tags: post.tags,
-      location: post.location,
+      caption: post?.caption ?? null,
+      image: post?.image ??  null,
+      imageId: post?.imageId ?? null, // Include imageId only if post.imageId exists
+      location: post?.location ?? null,
       user: userId,
     });
 
