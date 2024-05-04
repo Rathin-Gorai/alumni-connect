@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Home1 = () => {
@@ -32,19 +33,19 @@ const Home1 = () => {
             </p>
           </div>
           <div className="mt-6 flex items-center justify-center gap-4">
-            <a
+            <Link
               href="#"
               className="transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700"
             >
               Get started for free
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="transform rounded-md border border-slate-200 px-5 py-3 font-medium text-slate-900 transition-colors hover:bg-slate-50"
             >
               {" "}
               Request a demo{" "}
-            </a>
+            </Link>
           </div>
         </div>
       </section>
