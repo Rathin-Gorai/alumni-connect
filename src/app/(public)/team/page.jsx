@@ -10,7 +10,7 @@ const page = () => {
           <div className="flex-auto block py-8 px-9">
             <div>
               <div className="mb-9">
-                <h1 className="mb-2 text-[1.75rem] font-semibold text-dark">
+                <h1 className="mb-2 mt-3 text-[1.75rem] font-semibold text-dark">
                   Our Executive Team
                 </h1>
                 <span className="text-[1.15rem] font-medium text-muted">
@@ -19,7 +19,7 @@ const page = () => {
                   passion and innovation.{" "}
                 </span>
               </div>
-              <div className="flex flex-wrap mx-[10%] w-full">
+              <div className="flex justify-center -mb-8 w-full">
                 <TeamCard
                   name="Rathin Kumar Gorai"
                   image={"https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar11.jpg"}
@@ -28,17 +28,22 @@ const page = () => {
                 <TeamCard
                   name="Shashi Anand Sharma" 
                   image='https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar11.jpg'
-                  experties='Full Stack Devloper'
+                  experties='Frontend Devloper'
                 />
                 <TeamCard
-                  name="Shashi Anand Sharma" 
+                  name="Shaghaf Fatima" 
                   image='https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar11.jpg'
-                  experties='Full Stack Devloper'
+                  experties='Frontend Devloper'
                 />
                 <TeamCard
-                  name="Shashi Anand Sharma" 
+                  name="Shagufta Nigar" 
                   image='https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar11.jpg'
-                  experties='Full Stack Devloper'
+                  experties='UI designer and Tester'
+                />
+                <TeamCard
+                  name="Sania Rashid" 
+                  image='https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar11.jpg'
+                  experties='UI designer and Tester'
                 />
 
               </div>

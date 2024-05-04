@@ -1,41 +1,41 @@
-'use client'
+"use client";
 import { saveContactsToDb } from "@/lib/actions/contact.action";
 import { useState } from "react";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 const page = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
-  })
+  });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await saveContactsToDb(formData);
       // console.log(res);
-      if(res.status === "success"){
+      if (res.status === "success") {
         toast.success("Message sent successfully");
         setFormData({
           name: "",
           email: "",
           phone: "",
           message: "",
-        })
+        });
       }
       // console.log(res);
     } catch (error) {
       console.log(error.message);
     }
-  }
+  };
   return (
     <div>
       <>
@@ -66,15 +66,15 @@ const page = () => {
                     GET IN TOUCH WITH US
                   </h2>
                   <p className="text-base text-body-color leading-relaxed mb-9">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eius tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                    adiqua minim veniam quis nostrud exercitation ullamco
+                    We would love to hear from you. Let us know about anything
+                    regarding our platform. Your reviews and remarks are
+                    valuable to us. Fill us in with your remarks!
                   </p>
                 </div>
               </div>
               <div className="w-full lg:w-1/2 xl:w-5/12 px-4">
                 <div className="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
-                  <form onSubmit={handleSubmit} >
+                  <form onSubmit={handleSubmit}>
                     <div className="mb-6">
                       <input
                         type="text"
@@ -158,7 +158,6 @@ const page = () => {
                           focus:border-primary
                           "
                         required
-                        
                       />
                     </div>
                     <div>
@@ -992,11 +991,9 @@ const page = () => {
             </div>
           </div>
         </section>
-
       </>
-
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
