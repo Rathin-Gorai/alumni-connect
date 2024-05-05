@@ -31,7 +31,7 @@ const page = () => {
             if (res.status==="success") {
                 // console.log(res);
                 toast.success(formData.name + ", account created successfully. Please Login")
-                // router.push('/login')
+                router.push('/login')
             } else {
                 toast.error(res.message)
             }

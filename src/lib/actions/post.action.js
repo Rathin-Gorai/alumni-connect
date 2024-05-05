@@ -72,7 +72,7 @@ export async function getAllPosts() {
   try {
     await connectToDatabase();
     const posts = await Post.find()
-      .populate({ path: "user", model: "User"  ,select:"_id avatar name"})
+      // .populate({ path: "user", model: "User"  ,select:"_id avatar name"})
       .sort({ createdAt: -1 });
     const response = {
       status: 200,
@@ -493,3 +493,24 @@ export async function likePostByPostId(postId, userId) {
   }
 }
 
+export async function getPostByUserId(userId) {
+  try {
+    await connectToDatabase();
+    const posts = await Post.find({ user: userId })
+      
+      .sort({ createdAt: -1 });
+    const response = {
+      status: 200,
+      message: "Posts fetched successfully",
+      data: posts,
+    };
+    revalidatePath("/");
+    return JSON.parse(JSON.stringify(response));
+  } catch (error) {
+    const response = {
+      status: 400,
+      message: error.message,
+    };
+    return JSON.parse(JSON.stringify(response));
+  }
+}
