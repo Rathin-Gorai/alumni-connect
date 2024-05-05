@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Faq = () => {
   return (
@@ -9,7 +9,7 @@ const Faq = () => {
             FAQ
           </h4>
           <p className="text-center text-gray-600 text-sm mt-2">
-            Here are some of the frequently asked questions
+            Here are some of the most frequently asked questions
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-12 px-2 xl:px-12 mt-4">
             <div className="flex space-x-8 mt-8">
@@ -33,15 +33,14 @@ const Faq = () => {
               </div>
               <div>
                 <h4 className="text-xl font-bold text-gray-700">
-                  Lorem ipsum dolor sit amet?
+                  Why should I join this platform?
                 </h4>
                 <p className="text-gray-600 my-2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-                  dignissimos. Neque eos, dignissimos provident reiciendis debitis
-                  repudiandae commodi perferendis et itaque, similique fugiat cumque
-                  impedit iusto vitae dolorum. Nostrum, fugit!
+                  This platform creates a collaborative learning environment
+                  that promotes knowledge exchange and skill development. You
+                  can leverage it so that you can make the most out of it abd
+                  have a rewarding and skilled career.
                 </p>
-                
               </div>
             </div>
             <div className="flex space-x-8 mt-8">
@@ -63,15 +62,14 @@ const Faq = () => {
               </div>
               <div>
                 <h4 className="text-xl font-bold text-gray-700">
-                  Consectetur adipisicing elit?
+                  Are there all existing students on this platform?
                 </h4>
                 <p className="text-gray-600 my-2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-                  dignissimos. Neque eos, dignissimos provident reiciendis debitis
-                  repudiandae commodi perferendis et itaque, similique fugiat cumque
-                  impedit iusto vitae dolorum. Nostrum, fugit!
+                  Yes! And to your surprise this is not the end of it. Apart
+                  from existing student across every branch and batches, there
+                  are also Alumni of previous batches too. Ensuring a strong
+                  college community.
                 </p>
-                
               </div>
             </div>
             <div className="flex space-x-8 mt-8">
@@ -93,15 +91,13 @@ const Faq = () => {
               </div>
               <div>
                 <h4 className="text-xl font-bold text-gray-700">
-                  Neque eos, dignissimos provident reiciendis debitis?
+                  How can I access this platform?
                 </h4>
                 <p className="text-gray-600 my-2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-                  dignissimos. Neque eos, dignissimos provident reiciendis debitis
-                  repudiandae commodi perferendis et itaque, similique fugiat cumque
-                  impedit iusto vitae dolorum. Nostrum, fugit!
+                  You can access our platform across all devices easily by
+                  visting our website. All you need is a device and an active
+                  internet connection. Voila! That is pretty much all you need.
                 </p>
-                
               </div>
             </div>
             <div className="flex space-x-8 mt-8">
@@ -123,15 +119,14 @@ const Faq = () => {
               </div>
               <div>
                 <h4 className="text-xl font-bold text-gray-700">
-                  Repudiandae commodi perferendis et itaque?
+                  What things can I do using this platform?
                 </h4>
                 <p className="text-gray-600 my-2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-                  dignissimos. Neque eos, dignissimos provident reiciendis debitis
-                  repudiandae commodi perferendis et itaque, similique fugiat cumque
-                  impedit iusto vitae dolorum. Nostrum, fugit!
+                  You can create personalized profiles showcasing your skills,
+                  interests, and academic background.Furthermore you can tag
+                  your skills and expertise, making it easier for others to
+                  discover and connect with you based on shared interests
                 </p>
-                
               </div>
             </div>
             <div className="flex space-x-8 mt-8">
@@ -153,15 +148,14 @@ const Faq = () => {
               </div>
               <div>
                 <h4 className="text-xl font-bold text-gray-700">
-                  Similique fugiat cumque?
+                  What is the objective of this platform?
                 </h4>
                 <p className="text-gray-600 my-2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-                  dignissimos. Neque eos, dignissimos provident reiciendis debitis
-                  repudiandae commodi perferendis et itaque, similique fugiat cumque
-                  impedit iusto vitae dolorum. Nostrum, fugit!
+                  The primary objective of the platform is to create a virtual
+                  space where students can interact, exchange knowledge, and
+                  collaborate on academic and professional endeavors. The
+                  application aims to foster interdisciplinary collaboration.
                 </p>
-              
               </div>
             </div>
             <div className="flex space-x-8 mt-8">
@@ -183,23 +177,21 @@ const Faq = () => {
               </div>
               <div>
                 <h4 className="text-xl font-bold text-gray-700">
-                  Impedit iusto vitae dolorum, nostrum fugit?
+                  Are there any future updates regarding this platform?
                 </h4>
                 <p className="text-gray-600 my-2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-                  dignissimos. Neque eos, dignissimos provident reiciendis debitis
-                  repudiandae commodi perferendis et itaque, similique fugiat cumque
-                  impedit iusto vitae dolorum. Nostrum, fugit!
+                  Yes! We are constantly working to make our platform better
+                  everyday. Furthermore we are creating new functionalities
+                  behind the scenes so that we can stay relevent and improve
+                  your experience.
                 </p>
-                
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Faq
+export default Faq;
