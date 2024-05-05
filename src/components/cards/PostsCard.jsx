@@ -11,7 +11,7 @@ const PostsCard = ({ post,user}) => {
         try {
             const response =await getUserById(id);
             setUser(response.data)
-            console.log(response.data);
+            // console.log(response.data);
         } catch (error) {
             console.log("Error in PostsCard, fetchUser",error);
         }
