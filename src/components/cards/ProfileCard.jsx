@@ -21,6 +21,7 @@ const ProfileCard = () => {
     linkedin: '',
     github: '',
     instagram: '',
+    curentJob:''
 
   });
   const getId = async () => {
@@ -46,13 +47,13 @@ const ProfileCard = () => {
       setUserData({
         ...userData,
         name: res?.name || 'name',
-        jobTitle: res.curentJob === undefined ? 'Software Engineer' : res.jobTitle,
+        jobTitle: res.curentJob === null ? 'Software Engineer' : res.jobTitle,
         bio: res.bio === undefined ? 'John is a software engineer with over 10 years of experience in developing web and mobile applications.' : res.bio,
         imageUrl: res.imageUrl === undefined ? 'https://picsum.photos/200' : res.imageUrl,
         alumni: res.alumni,
         branch: res.branch,
         email: res.email,
-        gender: res.gender
+        gender: res.gender,
       });
     } catch (error) {
       console.log(error);

@@ -10,6 +10,7 @@ function page() {
             <div className='mt-5'>
             </div>
             <Newpost/>
+            
             <PostsCard/>
         </div>
     )

@@ -72,7 +72,7 @@ export async function getAllPosts() {
   try {
     await connectToDatabase();
     const posts = await Post.find()
-      .populate({ path: "user", model: "User"  ,select:"_id avatar name"})
+      // .populate({ path: "user", model: "User"  ,select:"_id avatar name"})
       .sort({ createdAt: -1 });
     const response = {
       status: 200,

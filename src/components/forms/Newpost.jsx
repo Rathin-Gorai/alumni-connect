@@ -29,7 +29,10 @@ const Newpost = () => {
 
     const handleSubmit = async () => {
         try {
-            console.log(formData, user);
+            // console.log(formData, user);
+            if(formData.post.caption === ''){
+                return
+            }
             const res = await createPost({
                 userId: user,
                 post: {

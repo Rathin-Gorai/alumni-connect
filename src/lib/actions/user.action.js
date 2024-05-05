@@ -176,7 +176,7 @@ export const getUserByToken = async () => {
     await connectToDatabase();
     // check if token is provided
     const token = cookies().get("token");
-    const decoedToke  = jwt.verify(
+    const decoedToken  = jwt.verify(
       token.value,
       process.env.JWT_SECRET 
     );
@@ -184,6 +184,42 @@ export const getUserByToken = async () => {
     // check if user exists
     const existingUser = await Users.findOne({
       _id: decoedToken?.id,
+    }).populate({
+      path: "posts",
+      model: "Post",
+      select: "_id image",
+    });
+
+    if (!existingUser) {
+      const response = {
+        status: false,
+        message: "User does not exists",
+      };
+      return JSON.parse(JSON.stringify(response));
+    }
+
+    const response = {
+      status: true,
+      message: "User logged in successfully",
+      data: existingUser,
+    };
+    return JSON.parse(JSON.stringify(response));
+  } catch (error) {
+    const response = {
+      status: false,
+      message: error.message,
+    };
+    return JSON.parse(JSON.stringify(response));
+  }
+};
+
+export const getUserById = async (userId) => {
+  try {
+    await connectToDatabase();
+
+    // check if user exists
+    const existingUser = await Users.findOne({
+      _id: userId,
     }).populate({
       path: "posts",
       model: "Post",
