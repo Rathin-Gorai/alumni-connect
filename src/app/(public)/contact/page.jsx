@@ -2,6 +2,8 @@
 import { saveContactsToDb } from "@/lib/actions/contact.action";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+
 const page = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -48,10 +50,14 @@ const page = () => {
             <div className="flex flex-wrap lg:justify-between -mx-4">
               <div className="w-full lg:w-1/2 xl:w-6/12 px-4">
                 <div className="max-w-[570px] mb-12 lg:mb-0">
-                  <span className="block mb-4 text-base text-primary font-semibold">
+                  <motion.span className="block mb-4 text-base text-primary font-semibold"
+                    initial={{ opacity: 0, x: -150 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+                  >
                     Contact Us
-                  </span>
-                  <h2
+                  </motion.span>
+                  <motion.h2
                     className="
                       text-dark
                       mb-6
@@ -62,17 +68,29 @@ const page = () => {
                       lg:text-[36px]
                       xl:text-[40px]
                       "
+
+                    initial={{ opacity: 0, x: -150 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, ease: "easeOut", delay: 1 }}
                   >
                     GET IN TOUCH WITH US
-                  </h2>
-                  <p className="text-base text-body-color leading-relaxed mb-9">
+                  </motion.h2>
+                  <motion.p className="text-base text-body-color leading-relaxed mb-9"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, ease: "easeOut", delay: 1.7 }}
+                  >
                     We would love to hear from you. Let us know about anything
                     regarding our platform. Your reviews and remarks are
                     valuable to us. Fill us in with your remarks!
-                  </p>
+                  </motion.p>
                 </div>
               </div>
-              <div className="w-full lg:w-1/2 xl:w-5/12 px-4">
+              <motion.div className="w-full lg:w-1/2 xl:w-5/12 px-4"
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 1.7 }}
+              >
                 <div className="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
                   <form onSubmit={handleSubmit}>
                     <div className="mb-6">
@@ -161,7 +179,7 @@ const page = () => {
                       />
                     </div>
                     <div>
-                      <button
+                      <motion.button
                         type="submit"
                         className="
                           w-full
@@ -173,9 +191,12 @@ const page = () => {
                           transition
                           hover:bg-opacity-90
                           "
+
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.01, ease: "easeIn" }}
                       >
                         Send Message
-                      </button>
+                      </motion.button>
                     </div>
                   </form>
                   <div>
@@ -987,7 +1008,7 @@ const page = () => {
                     </span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>

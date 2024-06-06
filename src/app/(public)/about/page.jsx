@@ -1,5 +1,7 @@
+"use client";
 import Link from 'next/link'
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const page = () => {
   return (
@@ -7,19 +9,27 @@ const page = () => {
       <section className="bg-white place-self-center">
         <div className="grid z-2 max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
           <div className="mr-auto place-self-center lg:col-span-7 ">
-            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl ">
+            <motion.h1 className="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl "
+              initial={{ opacity: 0, x: -150 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+            >
               Aiming towards<br />
               skills sharing &amp; strong community.
-            </h1>
-            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl ">
+            </motion.h1>
+            <motion.p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl "
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 1.7 }}
+            >
               This free and open-source landing page template was built using the
               utility classes from{" "}
               <Link href="#" target="_blank" className="hover:underline">
-                Tailwind CSS
+                <b>Tailwind CSS</b>
               </Link>{" "}
               and based on the components from the{" "}
               <Link href="#/" className="hover:underline" target="_blank">
-                Flowbite Library
+                <b>Flowbite Library</b>
               </Link>{" "}
               and the{" "}
               <Link
@@ -27,11 +37,15 @@ const page = () => {
                 target="_blank"
                 className="hover:underline"
               >
-                Blocks System
+                <b>Blocks System</b>
               </Link>
               .
-            </p>
-            <div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
+            </motion.p>
+            <motion.div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+            >
               <Link
                 href="https://github.com/themesberg/landwind"
                 target="_blank"
@@ -66,7 +80,7 @@ const page = () => {
                         "\n\t\t\t\t\t\t\t\t.st0 {\n\t\t\t\t\t\t\t\t\tfill: #0acf83\n\t\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t\t.st1 {\n\t\t\t\t\t\t\t\t\tfill: #a259ff\n\t\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t\t.st2 {\n\t\t\t\t\t\t\t\t\tfill: #f24e1e\n\t\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t\t.st3 {\n\t\t\t\t\t\t\t\t\tfill: #ff7262\n\t\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t\t.st4 {\n\t\t\t\t\t\t\t\t\tfill: #1abcfe\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t"
                     }}
                   />
-                  
+
                   <path
                     id="path0_fill"
                     className="st0"
@@ -95,14 +109,18 @@ const page = () => {
                 </svg>{" "}
                 Get Figma file
               </Link>
-            </div>
+            </motion.div>
           </div>
-          <div className="lg:mt-0 lg:col-span-5 lg:flex md:order-last  order-first">
+          <motion.div className="lg:mt-0 lg:col-span-5 lg:flex md:order-last  order-first"
+            initial={{ opacity: 0, x: 150 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+          >
             <img
               src="https://demo.themesberg.com/landwind/images/hero.png"
               alt="hero image"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 

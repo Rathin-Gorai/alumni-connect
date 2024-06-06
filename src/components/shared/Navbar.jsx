@@ -1,10 +1,16 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
+
 const Navbar = () => {
     const path = usePathname();
     return (
-        <div>
+        <motion.div
+            initial={{ opacity: 0, y: -150 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, ease: "easeIn" }}
+        >
             <header className="shadow sticky z-50 top-0">
                 <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
                     <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
@@ -84,7 +90,7 @@ const Navbar = () => {
                     </div>
                 </nav>
             </header>
-        </div>
+        </motion.div>
     )
 }
 

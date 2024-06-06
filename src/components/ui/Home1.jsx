@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 const Home1 = () => {
   return (
@@ -7,12 +9,16 @@ const Home1 = () => {
       <section className="flex items-center pt-8 justify-center bg-white px-1">
         <div className="mx-auto max-w-[80rem]">
           <div className="text-center">
-            <p className="text-lg font-medium leading-8 text-indigo-600/95">
+            <p className="text-lg font-medium leading-8 text-indigo-600/95"
+            >
               Introducing the Alumni Connect platform
             </p>
-            <h1 className="mt-3 text-[3.5rem] font-bold leading-[4rem] tracking-tight text-black">
+            <motion.h1 className="mt-3 text-[3.5rem] font-bold leading-[4rem] tracking-tight text-black"
+              whileHover={{ scale: 1.1 }}
+              transition={{ ease: "easeOut" }}
+            >
               Connect to your college communnity
-            </h1>
+            </motion.h1>
             <p className="mt-3 mx-auto max-w-[100rem] text-lg leading-relaxed text-slate-400">
               This social media app facilitates seamless communication among
               students from different branches and academic years, breaking down

@@ -1,33 +1,55 @@
+"use client";
 import { Crousel, Faq, Home1 } from "@/components";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <>
       <div className="bg-white pt-4 lg:pt-16 relative lg:ml-5 pb-20 lg:pb-10 ">
         <div className="relative xl:container m-auto px-6 md:px-12 lg:px-6">
-          <h1 className="sm:mx-auto sm:w-10/12 md:w-2/3 font-black text-blue-900 text-4xl text-center sm:text-5xl md:text-6xl lg:w-auto lg:text-left xl:text-7xl ">
+          <motion.h1 className="sm:mx-auto sm:w-10/12 md:w-2/3 font-black text-blue-900 text-4xl text-center sm:text-5xl md:text-6xl lg:w-auto lg:text-left xl:text-7xl "
+            initial={{ opacity: 0, x: -150 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+          >
             An Initiative towards a<br className="lg:block hidden" />{" "}
             <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 ">
               Skilled Future
             </span>
             .
-          </h1>
-          <div className="lg:flex">
+          </motion.h1>
+          <motion.div className="lg:flex"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeIn", delay: 1 }}
+          >
             <div className="relative mt-8 md:mt-16 space-y-8 sm:w-10/12 md:w-2/3 lg:ml-0 sm:mx-auto text-center lg:text-left lg:mr-auto lg:w-7/12">
-              <p className="sm:text-lg text-gray-700  lg:w-11/12">
+              <motion.p className="sm:text-lg text-gray-700  lg:w-11/12"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 1.7 }}
+              >
                 In the era of digital connectivity, social media platforms have
                 become integral to our daily lives, offering avenues for
                 communication, networking, and collaboration. Recognizing the
                 need for a tailored solution within the educational ecosystem,
                 this project aims to develop a specialized social media
                 application for a college/educational organization
-              </p>
-              <span className="block font-semibold text-gray-500 ">
+              </motion.p>
+              <motion.span className="block font-semibold text-gray-500 "
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 1.7 }}
+              >
                 And this is exactly where we play our part.
-              </span>
+              </motion.span>
 
-              <p className="sm:text-lg text-gray-700  lg:w-10/12">
+              <motion.p className="sm:text-lg text-gray-700  lg:w-10/12"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 1.7 }}
+              >
                 The primary objective of this social media platform is to create
                 a virtual space where MITM students can interact, exchange
                 knowledge, and collaborate on academic and professional
@@ -42,7 +64,7 @@ export default function Home() {
                 and empowerment of students by providing them with a platform to
                 harness their collective potential and facilitate their
                 professional growth.
-              </p>
+              </motion.p>
               <div className="grid grid-cols-3 space-x-4 md:space-x-6 md:flex md:justify-center lg:justify-start">
                 <Link
                   aria-label="add to slack"
@@ -98,8 +120,17 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
-              <div className="">
-                🔥🌟
+              <div className="flex">
+                <motion.div
+                  whileHover={{ scale: 1.8 }}
+                  onHoverStart={e => { }}
+                  onHoverEnd={e => { }}
+                >🔥</motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.8 }}
+                  onHoverStart={e => { }}
+                  onHoverEnd={e => { }}
+                >🌟</motion.div>
                 <span>Other integrations :</span>
                 <Link href="#" className="font-semibold text-gray-700 ">
                   Discord,
@@ -147,7 +178,7 @@ export default function Home() {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
