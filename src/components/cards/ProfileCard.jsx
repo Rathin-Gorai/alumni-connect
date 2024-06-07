@@ -1,9 +1,10 @@
-'use client'
+"use client";
 import { getUserIdByToken, getUserData } from '@/lib/actions/user.action';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 
 const ProfileCard = () => {
 
@@ -21,7 +22,7 @@ const ProfileCard = () => {
     linkedin: '',
     github: '',
     instagram: '',
-    curentJob:''
+    curentJob: ''
 
   });
   const getId = async () => {
@@ -64,7 +65,7 @@ const ProfileCard = () => {
   }, [userData.id])
 
   //save changes function
-  const handlsubmit = () =>{
+  const handlsubmit = () => {
 
   }
 
@@ -75,9 +76,11 @@ const ProfileCard = () => {
     <div className="rounded-lg shadow-md ">
 
       {/* Button to open the modal */}
-      <button className="top-2 left-4 text-gray-400 hover:text-gray-600" onClick={() => setIsModalOpen(true)}>
+      <motion.button className="top-2 left-4 text-gray-400 hover:text-gray-600" onClick={() => setIsModalOpen(true)}
+        whileHover={{ scale: 1.3 }}
+      >
         <FontAwesomeIcon icon={faPencilAlt} />
-      </button>
+      </motion.button>
 
       {/* popup modal component conditional render */}
       {
@@ -86,15 +89,21 @@ const ProfileCard = () => {
             <div className="bg-black border-2 border-white p-5 rounded-lg shadow-lg xl:w-[30%]">
               <h2 className="text-xl font-bold text-white mb-4">Edit your profile details</h2>
               <form className='flex flex-col items-center'>
-              <input type="file" placeholder="Change picture" onChange={e => setUserData({ ...userData, imageUrl: e.target.value})} className="block w-full p-2 border border-gray-500 focus:border-blue-500 rounded mb-3 text-white" ></input>
+                <input type="file" placeholder="Change picture" onChange={e => setUserData({ ...userData, imageUrl: e.target.value })} className="block w-full p-2 border border-gray-500 focus:border-blue-500 rounded mb-3 text-white" ></input>
                 <input type="text" placeholder="Phone" value={userData.phone} onChange={e => setUserData({ ...userData, phone: e.target.value })} className="block w-full p-2 border border-gray-500 focus:border-blue-500 rounded mb-3 text-white bg-black" />
                 <input type="text" placeholder="LinkedIn Link" value={userData.linkedin} onChange={e => setUserData({ ...userData, linkedin: e.target.value })} className="block w-full p-2 border border-gray-500 focus:border-blue-500 rounded mb-3 text-white bg-black" />
                 <input type="text" placeholder="GitHub Link" value={userData.github} onChange={e => setUserData({ ...userData, github: e.target.value })} className="block w-full p-2 border border-gray-500 focus:border-blue-500 rounded mb-3 text-white bg-black" />
                 <input type="text" placeholder="Instagram Link" value={userData.instagram} onChange={e => setUserData({ ...userData, instagram: e.target.value })} className="block w-full p-2 border border-gray-500 focus:border-blue-500 rounded mb-3 text-white bg-black" />
                 <textarea placeholder="Bio" value={userData.bio} onChange={e => setUserData({ ...userData, bio: e.target.value })} className="block w-full p-2 border border-gray-500 focus:border-blue-500 rounded mb-3 text-white bg-black"></textarea>
                 <input type="text" placeholder="Current Job" value={userData.jobTitle} onChange={e => setUserData({ ...userData, jobTitle: e.target.value })} className="block w-full p-2 border border-gray-500 focus:border-blue-500 rounded mb-3 text-white bg-black" />
-                <button type='button' onSubmit={handlsubmit} className="bg-blue-500 text-white p-2 w-39 rounded-md">Save changes</button>
-                <button type="button" onClick={() => setIsModalOpen(false)} className="bg-blue-500 mt-3 text-white p-2 rounded-md w-20">Close</button>
+                <motion.button type='button' onSubmit={handlsubmit} className="bg-blue-500 text-white p-2 w-39 rounded-md"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.1, ease: "easeIn" }}
+                >Save changes</motion.button>
+                <motion.button type="button" onClick={() => setIsModalOpen(false)} className="bg-blue-500 mt-3 text-white p-2 rounded-md w-20"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.1, ease: "easeIn" }}
+                >Close</motion.button>
               </form>
             </div>
           </div>

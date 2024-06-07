@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 const Crousel = () => {
   return (
@@ -12,7 +14,8 @@ const Crousel = () => {
           }}
         >
           <div className="container mx-auto text-center text-white">
-            <h1 className="text-5xl font-medium mb-6">
+            <h1 className="text-5xl font-medium mb-6"
+            >
               Welcome to our platform
             </h1>
             <p className="text-xl mb-12">
